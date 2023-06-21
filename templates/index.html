@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}main page{% endblock %}
+{% block body %}
+<style>
+    .v {
+  display: flex;
+  position: relative;
+  top: 0;
+  left: -10px;
+  transform: translateX(0px);
+  transition: left 2s;
+}
+</style>
+<div class="mt-5 container justify-content-center">
+    <form action="/review" method="POST" class="bg-light p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                  <div class="row row-cols-2">
+                    <div class="col">
+                      <h4>Sepal length</h4>
+                      <input class="v ms-2" type="range" name="s_length" id="sepal_length" value="0" min="0" max="10" step="0.1" oninput="updateDisplay('sepal_length', 'sl_value')">
+                    </div>
+                    <div class="col">
+                        <span class="display-5 fw-bold" id="sl_value">0</span>
+                    </div>
+                    <div class="col">
+                      <h4>Sepal width</h4>
+                      <input class="v ms-2" type="range" name="s_width" id="sepal_width" value="0" min="0" max="10" step="0.1" oninput="updateDisplay('sepal_width', 'sw_value')">
+                    </div>
+                    <div class="col">
+                        <span class="display-5 fw-bold" id="sw_value">0</span>
+                    </div>
+                    <div class="col">
+                      <h4>Petal length</h4>
+                      <input class="v ms-2" type="range" name="p_length" id="petal_length" value="0" min="0" max="10" step="0.1" oninput="updateDisplay('petal_length', 'pl_value')">
+                    </div>
+                    <div class="col">
+                        <span class="display-5 fw-bold" id="pl_value">0</span>
+                      </div>
+                    <div class="col">
+                      <h4>Petal width</h4>
+                      <input class="v ms-2" type="range" name="p_width" id="petal_width" value="0" min="0" max="10" step="0.1" oninput="updateDisplay('petal_width', 'pw_value')">
+                    </div>
+                    <div class="col">
+                        <span class="display-5 fw-bold" id="pw_value">0</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-8">
+                    <h1 class="text-center fw-bold text-warning">Predicted flower</h1>
+                    <h1 class="text-center fw-bold text-danger">{{final_result}}</h1>
+                </div>
+              </div>
+              
+              <script type="text/javascript">
+                function updateDisplay(inputId, displayId) {
+                  var value = document.getElementById(inputId).value;
+                  document.getElementById(displayId).textContent = value;
+                }
+              </script>
+        </div>
+        <button class="btn btn-primary text-center" type="submit">Predict</button>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
