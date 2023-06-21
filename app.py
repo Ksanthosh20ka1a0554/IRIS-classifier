@@ -48,8 +48,7 @@ def predict():
     return render_template('index.html',final_result=flower)
     
 
-if __name__ == '__main__':
-   app.run(debug = True)
+
 
 
 # from flask import Flask, redirect, url_for
