@@ -45,7 +45,14 @@ def predict():
          pre_list = [sep_length,sep_width,pet_length,pet_width]
          pred_value = knn.predict([pre_list])[0]
          flower = classes[pred_value]
-    return render_template('index.html',final_result=flower)
+         if flower=='setosa':
+            src='iris_setosa.png'
+         elif flower=='versicolor':
+            src='iris_versicolor.png'
+         elif flower=='virginica':
+            src='iris_virginica.png'
+
+    return render_template('index.html',final_result_image=src,show_image=True)
     
 
 
@@ -69,5 +76,5 @@ def predict():
 #    else:
 #       return redirect(url_for('hello_guest',guest = name))
 
-# if __name__ == '__main__':
-#    app.run(debug = True)
+if __name__ == '__main__':
+    app.run(debug = True)
