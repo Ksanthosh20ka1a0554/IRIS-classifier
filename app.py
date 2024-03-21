@@ -4,7 +4,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
-
+import os
 
 iris = pd.read_csv('Iris dataset.csv')
 iris.shape
@@ -76,5 +76,6 @@ def predict():
 #    else:
 #       return redirect(url_for('hello_guest',guest = name))
 
-#if __name__ == '__main__':
-#    app.run(debug = True)
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
