@@ -68,8 +68,7 @@
                     <h1 class="text-center fw-bold text-warning">Predicted flower</h1>
                     <div class="text-center">
                       {% if show_image %}
-                      <img id="prediction-image" src="{{url_for('static', filename=final_result_image)}}"
-                          alt="result">
+                      <img id="prediction-image" src="{{url_for('static', filename=final_result_image)}}"alt="result">
                       {% else %}
                       <img class="d-none" id="prediction-image" src="{{url_for('static', filename=final_result_image)}}"
                             alt="result">
